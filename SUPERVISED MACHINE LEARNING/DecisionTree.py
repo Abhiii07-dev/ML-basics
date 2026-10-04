@@ -1,4 +1,5 @@
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import export_text
 
 x = [
     [7,2],   
@@ -20,3 +21,7 @@ if result == 0:
     print(f" This is laikely to be an apple!")
 else:
     print(f" This is likely to be an orange!")
+
+
+
+# print(export_text(model, feature_names=["size","shade"]))   #extra

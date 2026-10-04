@@ -1,4 +1,4 @@
-# import seaborn as sns
+
 # import pandas as pd
 # from sklearn.preprocessing import StandardScaler,MinMaxScaler
 
@@ -8,7 +8,7 @@
 # # mean = 0 and std = 1
 
 # scalar = StandardScaler()
-# X_sclaed = scalar.fit_transform()
+# X_sclaed = scaler.fit_transform()
 
 # scalar = MinMaxScaler()
 # X_sclaed = scalar.fit_transform()
@@ -79,4 +79,4 @@ print(y_test)
 
 
 
-# THE VALUE SHOULD REVLOVE AROUND 0 , ITS BEST FOR THE MODEL TO TRAINING
+# THE VALUE SHOULD REVLOVE AROUND 0 , ITS BEST FOR THE MODEL TO TRAINING.....(for standard scaler) (for minmaxscaler its btw 0 to 1)
