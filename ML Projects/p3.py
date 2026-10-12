@@ -80,16 +80,16 @@ print(f" the mean squared value is :{round(mse,3)}")
 print("------------user input for prediction-------------")
 
 try:
-    sleepquality = float(input("Enter the study hours:"))
-    studymethod = float(input("Enter the study method:"))
+    studyhours = float(input("Enter the study hours:"))
+    # studymethod = float(input("Enter the study method:"))
     facilityrating = float(input("Enter the facility rating:"))
-    sleepquality = float(input("Enter the exam diffilculty:"))
+    # sleepquality = float(input("Enter the exam diffilculty:"))
 
     user_input_df = pd.DataFrame([{
-        sleepquality : sleep_quality,
-        studymethod : study_method,
+        studyhours : study_hours,
+        # studymethod : study_method,
         facilityrating : facility_rating,
-        sleepquality : sleep_quality
+        # sleepquality : sleep_quality
 
     }])
 

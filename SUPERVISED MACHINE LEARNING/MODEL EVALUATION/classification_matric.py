@@ -1,12 +1,12 @@
 """
 accuracy = "correct_prediction/total_prediction"
-precision= how often the prediction is right
-recall
-F1 score = balancing precion and recall data
+precision= out of everything I predicted positive, how many really were
+recall = out of everything actually positive, how many did I catch
+F1 score = balancing precion and recall data (harmonic mean of precision and recall)
 """
 #it's not used to train or  predict thr data, its only to scoring the results
 
-from sklearn.metrics import accuracy_score,precision_score,recall_score,f1_score      
+from sklearn.metrics import accuracy_score,precision_score,recall_score,f1_score,classification_report      
 
 
 #True answers (What actually happened)
@@ -23,3 +23,5 @@ print(f"F1 score:{f1_score(y_True,y_pred)}")
 
 
 
+x = classification_report(y_True, y_pred)
+print(x)

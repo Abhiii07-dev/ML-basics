@@ -23,7 +23,6 @@ print(f" the mean absolute erroe is :{mae}")
 print(f" the mean squared value is :{mse}")
 print(f" the root mean squared value is :{rmse}")
 
-
 #extra prediction
 new_hour = float(input("Enter the hours study:"))
 new_pred = model.predict([[new_hour]])

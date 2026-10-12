@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_absolute_error,mean_squared_error,r2_score
+from sklearn.metrics import mean_absolute_error,mean_squared_error,r2_score,root_mean_squared_error
 
 data = pd.read_csv(r"C:\Users\ap910\Downloads\s1.zip")
 
@@ -15,7 +15,7 @@ predicted_score = model.predict(x)
 
 mae = mean_absolute_error(y,predicted_score)
 mse = mean_squared_error(y,predicted_score)
-rmse = np.sqrt(mse)
+rmse = root_mean_squared_error(y,predicted_score)
 r2 = r2_score(y,predicted_score)
 
 print(f" the mean absolute erroe is :{round(mae,3)}")
@@ -45,6 +45,7 @@ plt.plot(x,predicted_score,color = "pink" , label = " Predicted Scores (Regressi
 plt.title("Scores of students according to hours  studied")
 plt.xlabel("study hours per day")
 plt.ylabel("Final outuput")
+plt.legend()
 plt.grid(True)
 plt.show()
 

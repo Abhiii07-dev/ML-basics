@@ -18,7 +18,7 @@ Root Mean Square Error
 """
 
 
-from sklearn.metrics import mean_absolute_error,mean_squared_error
+from sklearn.metrics import mean_absolute_error,mean_squared_error,root_mean_squared_error
 import numpy as np
 
 
@@ -27,7 +27,8 @@ predicted_scores = [85,70,70,95]
 
 mae = mean_absolute_error(real_scores,predicted_scores)
 mse = mean_squared_error(real_scores,predicted_scores)
-rmse = np.sqrt(mse)
+# rmse = np.sqrt(mse)
+rmse = root_mean_squared_error(real_scores,predicted_scores)
 
 print(f"MAE:{mae}")
 print(f"MSE:{mse}")
