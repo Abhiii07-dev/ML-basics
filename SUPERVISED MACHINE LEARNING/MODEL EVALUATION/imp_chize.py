@@ -25,7 +25,7 @@ import numpy as np
 real_scores = [90,60,80,100]
 predicted_scores = [85,70,70,95]
 
-mae = mean_absolute_error(real_scores,predicted_scores)
+mae = mean_absolute_error(real_scores,predicted_scores)   # for plain interpratation
 mse = mean_squared_error(real_scores,predicted_scores)
 # rmse = np.sqrt(mse)
 rmse = root_mean_squared_error(real_scores,predicted_scores)

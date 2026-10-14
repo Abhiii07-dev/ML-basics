@@ -30,9 +30,9 @@ print(f"r2 score ( Model accuracy) :{round(r2,4)}")
 
 plt.figure(figsize=(10,6))
 plt.hist(data["exam_score"],bins = 70 ,color="maroon" , edgecolor = "black")
-plt.title("Scores of students according to hours  studied")
+plt.title("Scores of students")
 plt.xlabel("Final exams score")
-plt.ylabel("Hours studied")
+plt.ylabel("count")
 plt.grid(True)
 plt.show()
 
