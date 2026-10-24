@@ -1,5 +1,4 @@
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.tree import export_text
 
 x = [
     [7,2],   
