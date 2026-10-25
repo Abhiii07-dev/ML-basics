@@ -211,5 +211,36 @@ chi2_df = chi2_df.sort_values(by = 'p_value')
 final_df = cleaned_df[["age","is_male","is_smoker","region_southeast","children","charges"]]
 
 
-print("FINAL DATAFRAME:")
-print(final_df)
+# print("FINAL DATAFRAME:")
+# print(final_df)
+
+
+
+"SUPERVISED LEARNING"
+
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+x = final_df.drop("charges",axis = 1)
+y = final_df["charges"]
+
+x_train , x_test , y_train ,y_test = train_test_split(x ,y ,test_size = 0.20 , random_state = 42)
+
+
+model = LinearRegression()
+model.fit(x_train,y_train)
+
+y_pred = model.predict(x_test)
+
+# Performance Analysis
+
+from sklearn.metrics import r2_score
+
+r2 = r2_score(y_test , y_pred)
+print(r2)
+
+n = x_test.shape[0]
+p = x_test.shape[1]
+adjusted_r2  = 1 - ((1-r2)*(n-1)/(n-p-1))
+print(adjusted_r2)
+

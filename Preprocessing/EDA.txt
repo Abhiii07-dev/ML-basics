@@ -1,0 +1,39 @@
+Eploratory Data Analysis
+
+its process of analysing , visualising and understanding the data before you build any Ml model
+
+
+# EDA Steps:
+
+1. Viewing Data (head(),tail(),shape,info())
+2. Summary Stats(mean,median,mode,std,max,quartiles)
+3. Value counts (how many unique value ( great for categorical data))
+4. Missing Value Analysis(where are the gaps , percentage of missing data)
+5. Visualisation
+6. Target Variable Exploration (how does your output relate to other variables)
+
+
+
+
+
+
+
+
+
+# DATA CLEANING
+
+
+
+1. Handling missing values
+2. Stratergies to handle:
+    . drop missing rows/column(only if very few)
+    . mean/median for numerical data
+    . mode for categorical data
+    advanced : linear regression , KNN or interpolation
+
+
+2. Removev Dublicates ( detect and delete exacy dublicate rows)
+3. Fix datatypes(no. stored as string and dates as text)
+4. HAndle incositent categories("Male","male","MALE" ----> become "male")
+5. Detect and handle outliers (boxplot,IQR,z-score)
+6. Fix logic or domain error
