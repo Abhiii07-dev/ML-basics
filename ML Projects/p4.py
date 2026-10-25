@@ -10,56 +10,56 @@ df = pd.read_csv(r"C:\Users\ap910\Downloads\insurance.csv")
 
 #EDA
 
-# print(df.head())
-# print(df.tail())
-# print(df.info())
-# print(df.shape)
+print(df.head())
+print(df.tail())
+print(df.info())
+print(df.shape)
 
-# print(df.describe())
+print(df.describe())
 
-# print(df.isnull().sum())
+print(df.isnull().sum())
 
 
 
 # VISUALSAION
 
-# print(df.columns)
+print(df.columns)
 
 
 numeric_columns = ["age","bmi","children","charges"]
 
-# for col in numeric_columns:
-#     plt.figure(figsize=(6,4))
-#     sns.histplot(df[col],kde=True,bins = 20)
-#     plt.show()
+for col in numeric_columns:
+    plt.figure(figsize=(6,4))
+    sns.histplot(df[col],kde=True,bins = 20)
+    plt.show()
 
 
 
 
 
-# sns.countplot(x = df["children"])
-# plt.show()
+sns.countplot(x = df["children"])
+plt.show()
 
 
-# sns.countplot(x = df["sex"])
-# plt.show()
+sns.countplot(x = df["sex"])
+plt.show()
 
 
-# sns.countplot(x = df["smoker"])
+sns.countplot(x = df["smoker"])
 
-# plt.show()
-
-
-
-# for col in numeric_columns:
-#     plt.figure(figsize=(6,4))
-#     sns.boxplot(x = df[col])
-#     plt.show()
+plt.show()
 
 
-# plt.figure(figsize=(8,6))
-# sns.heatmap(df.corr(numeric_only=True) , annot=True)
-# plt.show()
+
+for col in numeric_columns:
+    plt.figure(figsize=(6,4))
+    sns.boxplot(x = df[col])
+    plt.show()
+
+
+plt.figure(figsize=(8,6))
+sns.heatmap(df.corr(numeric_only=True) , annot=True)
+plt.show()
 
 
 
@@ -67,18 +67,18 @@ numeric_columns = ["age","bmi","children","charges"]
 # DATA CLEANING AND PREPROCESSING
 
 cleaned_df = df.copy()
-# print(cleaned_df.shape)
+print(cleaned_df.shape)
 
-# drop null values (already done)
+#drop null values (already done)
 
 cleaned_df.drop_duplicates(inplace = True)
-# print(cleaned_df.shape)
+print(cleaned_df.shape)
 
-# fill the null values
+#fill the null values
 
-# print(cleaned_df.dtypes)
+print(cleaned_df.dtypes)
 
-# print(cleaned_df["sex"].value_counts())
+print(cleaned_df["sex"].value_counts())
 
 
 
@@ -96,11 +96,11 @@ cleaned_df.rename(columns={
     "smoker" : "is_smoker"
 }, inplace=True)
 
-# print(cleaned_df)
+print(cleaned_df)
 
 
 cleaned_df = pd.get_dummies(cleaned_df,columns=["region"],drop_first=True,dtype = int)
-# print(cleaned_df)
+print(cleaned_df)
 
 
 
@@ -109,7 +109,7 @@ cleaned_df = pd.get_dummies(cleaned_df,columns=["region"],drop_first=True,dtype 
 # FEATURE ENGINEERING
 
 sns.histplot(df["bmi"])
-# plt.show()
+plt.show()
 
 
 cleaned_df["bmi_categories"] = pd.cut(
@@ -118,10 +118,10 @@ cleaned_df["bmi_categories"] = pd.cut(
     labels = ["Underweight","normal","overweight","obese"]
 )
 
-# print(cleaned_df)
+print(cleaned_df)
 
 cleaned_df = pd.get_dummies(cleaned_df,columns=["bmi_categories"],drop_first=True,dtype=int)
-# print(cleaned_df)
+print(cleaned_df)
 
 # scaling
 
@@ -136,7 +136,7 @@ col = ["age","bmi","children"]
 ss = StandardScaler()
 
 cleaned_df[col] = ss.fit_transform(cleaned_df[col])
-# print(cleaned_df)
+print(cleaned_df)
 
 
 
@@ -163,7 +163,7 @@ correlation_dff.sort_values(by = "Pearson Correlation" , ascending=False, inplac
 
 # more the value , more the correlation
 
-# print(correlation_dff)  
+print(correlation_dff)  
 
 # if the value is above 0.5 OR below -0.5 ---> have good correlation ( have to include)
 # 0.2 - 0.5 = can include
@@ -203,7 +203,7 @@ for col in cat_features:
 
 chi2_df = pd.DataFrame(chi2_results).T
 chi2_df = chi2_df.sort_values(by = 'p_value')
-# print(chi2_df)
+print(chi2_df)
 
 
 
@@ -211,8 +211,8 @@ chi2_df = chi2_df.sort_values(by = 'p_value')
 final_df = cleaned_df[["age","is_male","is_smoker","region_southeast","children","charges"]]
 
 
-# print("FINAL DATAFRAME:")
-# print(final_df)
+print("FINAL DATAFRAME:")
+print(final_df)
 
 
 
@@ -237,10 +237,12 @@ y_pred = model.predict(x_test)
 from sklearn.metrics import r2_score
 
 r2 = r2_score(y_test , y_pred)
-print(r2)
+# print(r2)
 
 n = x_test.shape[0]
 p = x_test.shape[1]
 adjusted_r2  = 1 - ((1-r2)*(n-1)/(n-p-1))
 print(adjusted_r2)
+
+# Ridge and lasso regression if overfitted ot underfitted
 
