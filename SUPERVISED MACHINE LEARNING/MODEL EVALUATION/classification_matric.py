@@ -1,7 +1,7 @@
 """
 accuracy = "correct_prediction/total_prediction"
-precision= out of everything I predicted positive, how many really were
-recall = out of everything actually positive, how many did I catch
+precision= out of everything I predicted positive, how many really were( use when flase positive are too costly(spam detection))
+recall = out of everything actually positive, how many did I catch (use when false nrgative when costly (disease detection))
 F1 score = balancing precion and recall data (harmonic mean of precision and recall)
 """
 #it's not used to train or  predict thr data, its only to scoring the results
